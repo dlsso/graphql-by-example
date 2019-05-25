@@ -22,7 +22,7 @@ const schema = makeExecutableSchema({typeDefs, resolvers});
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(cors(), bodyParser.json());
 app.use('/graphql', graphqlExpress({schema}));
 app.use('/graphiql', graphiqlExpress({endpointURL: 'graphql'}));
 app.listen(port, () => console.log(`Server running on port ${port}`));
